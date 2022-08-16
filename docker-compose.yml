@@ -43,7 +43,8 @@ services:
     image: rabbitmq:alpine
 
   txs-web:
-    image: gnosispm/safe-transaction-service:${TXS_VERSION}
+#    image: gnosispm/safe-transaction-service:${TXS_VERSION}
+    image: gzeon/safe-transaction-service:${TXS_VERSION}
     env_file:
       - container_env_files/txs.env
     volumes:
@@ -59,7 +60,8 @@ services:
     command: docker/web/run_web.sh
 
   txs-worker-indexer: &txs-worker
-    image: gnosispm/safe-transaction-service:${TXS_VERSION}
+#    image: gnosispm/safe-transaction-service:${TXS_VERSION}
+    image: gzeon/safe-transaction-service:${TXS_VERSION}
     env_file:
       - container_env_files/txs.env
     volumes:
