@@ -47,8 +47,6 @@ services:
     image: gzeon/safe-transaction-service:${TXS_VERSION}
     env_file:
       - container_env_files/txs.env
-    volumes:
-      - ./txs_patchs/setup_service.py:/app/safe_transaction_service/history/management/commands/setup_service.py:ro
     environment:
       - ETHEREUM_NODE_URL=${RPC_NODE_URL}
     depends_on:
@@ -64,8 +62,6 @@ services:
     image: gzeon/safe-transaction-service:${TXS_VERSION}
     env_file:
       - container_env_files/txs.env
-    volumes:
-      - ./txs_patchs/setup_service.py:/app/safe_transaction_service/history/management/commands/setup_service.py:ro
     environment:
       - ETHEREUM_NODE_URL=${RPC_NODE_URL}
       - RUN_MIGRATIONS=1
