@@ -110,18 +110,10 @@ services:
       - cgw-redis
 
   ui:
-    image: gnosispm/safe-react
+    image: gzeon/safe-react:v3.29.1-nova
     env_file:
       - container_env_files/ui.env
-    volumes:
-      - ./ui_patches/@gnosis.pm+safe-deployments+1.15.0.patch:/app/patches/@gnosis.pm+safe-deployments+1.15.0.patch:ro
     depends_on:
       - nginx
     ports:
       - "${REVERSE_PROXY_UI_PORT}:3000"
-    command: 
-      - /bin/bash
-      - -c
-      - |
-        yarn upgrade @gnosis.pm/safe-deployments@1.15.0
-        yarn start
